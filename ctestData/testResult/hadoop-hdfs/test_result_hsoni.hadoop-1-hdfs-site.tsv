@@ -1,0 +1,15 @@
+org.apache.hadoop.hdfs.server.namenode.TestCommitBlockSynchronization#testCommitBlockSynchronization	p	0.021
+org.apache.hadoop.tools.TestHdfsConfigFields#testXmlAgainstDefaultValuesInConfigurationClass	p	0.018
+org.apache.hadoop.hdfs.server.namenode.TestCommitBlockSynchronization#testCommitBlockSynchronizationWithDelete	p	0.058
+org.apache.hadoop.hdfs.server.namenode.TestCommitBlockSynchronization#testCommitBlockSynchronizationWithClose	p	0.017
+org.apache.hadoop.hdfs.server.datanode.TestDataXceiverLazyPersistHint#testOverrideWithRemoteClient	p	0.016
+org.apache.hadoop.hdfs.server.namenode.TestCommitBlockSynchronization#testCommitBlockSynchronization2	p	0.596
+org.apache.hadoop.hdfs.server.namenode.TestFSImage#testZeroBlockSize	f	1.288
+org.apache.hadoop.hdfs.server.datanode.TestDataNodeUUID#testDatanodeUuid	p	0.559
+org.apache.hadoop.tools.TestHdfsConfigFields#testCompareXmlAgainstConfigurationClass	p	0.184
+org.apache.hadoop.hdfs.server.namenode.ha.TestHAConfiguration#testGetOtherNNHttpAddress	p	0.215
+org.apache.hadoop.hdfs.server.namenode.TestNameNodeHttpServerXFrame#testSecondaryNameNodeXFrame	p	0.633
+org.apache.hadoop.tools.TestHdfsConfigFields#testCompareConfigurationClassAgainstXml	p	0.014
+org.apache.hadoop.hdfs.server.datanode.TestDataXceiverLazyPersistHint#testWithRemoteClient	p	0.328
+org.apache.hadoop.hdfs.server.datanode.TestDataXceiverLazyPersistHint#testWithLocalClient	p	0.016
+org.apache.hadoop.hdfs.server.namenode.TestCommitBlockSynchronization#testCommitBlockSynchronizationWithCloseAndNonExistantTarget	p	0.02

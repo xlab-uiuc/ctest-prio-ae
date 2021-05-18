@@ -1,0 +1,2 @@
+org.apache.hadoop.hdfs.server.namenode.TestFSImage#testZeroBlockSize	effective	dfs.datanode.data.dir
+org.apache.hadoop.cli.TestXAttrCLI#testAll	flaky	

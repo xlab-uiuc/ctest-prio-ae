@@ -1,0 +1,5 @@
+org.apache.hadoop.cli.TestXAttrCLI#testAll	flaky	
+org.apache.hadoop.hdfs.server.namenode.TestFSImage#testZeroBlockSize	effective	dfs.datanode.data.dir
+org.apache.hadoop.hdfs.server.namenode.TestNameNodeHttpServerXFrame#testSecondaryNameNodeXFrame	effective	dfs.namenode.checkpoint.dir
+org.apache.hadoop.hdfs.TestDatanodeReport#testDatanodeReportMissingBlock	flaky	
+org.apache.hadoop.hdfs.TestHDFSServerPorts#testSecondaryNodePorts	effective	dfs.namenode.checkpoint.dir

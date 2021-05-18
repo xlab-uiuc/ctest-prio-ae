@@ -1,0 +1,2 @@
+alluxio.master.AlluxioMasterProcessTest#startStopPrimary	effective	alluxio.master.mount.table.root.ufs
+alluxio.master.AlluxioMasterProcessTest#startStopSecondary	effective	alluxio.master.mount.table.root.ufs

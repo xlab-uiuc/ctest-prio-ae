@@ -1,0 +1,2 @@
+org.apache.hadoop.hbase.client.TestAsyncNonMetaRegionLocatorConcurrenyLimit
+org.apache.hadoop.hbase.replication.TestSerialReplication

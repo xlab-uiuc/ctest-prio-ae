@@ -1,0 +1,7 @@
+org.apache.hadoop.cli.TestXAttrCLI#testAll	flaky	
+org.apache.hadoop.hdfs.protocol.datatransfer.sasl.TestSaslDataTransfer#testNoSaslAndSecurePortsIgnored	flaky	
+org.apache.hadoop.hdfs.server.datanode.TestDataNodeLifeline#testLifelineForDeadNode	effective	dfs.nameservices
+org.apache.hadoop.hdfs.server.datanode.TestDataNodeLifeline#testNoLifelineSentIfHeartbeatsOnTime	effective	dfs.nameservices
+org.apache.hadoop.hdfs.server.datanode.TestDataNodeLifeline#testSendLifelineIfHeartbeatBlocked	effective	dfs.nameservices
+org.apache.hadoop.hdfs.server.namenode.TestFSImage#testZeroBlockSize	effective	dfs.datanode.data.dir
+org.apache.hadoop.hdfs.tools.TestGetConf#testNonFederation	effective	dfs.nameservices
