@@ -2,6 +2,8 @@
 
 # Research Artifact: Test-Case Prioritization for Configuration Testing
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4742567.svg)](https://doi.org/10.5281/zenodo.4742567)
+
 This is the artifact of the research paper, "Test-Case Prioritization for Configuration Testing", at the ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA), 2021.
 
 
