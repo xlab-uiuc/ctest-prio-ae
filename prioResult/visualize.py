@@ -230,6 +230,9 @@ import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
+matplotlib.rcParams['pdf.fonttype'] = 42
+matplotlib.rcParams['ps.fonttype'] = 42
+
 APMDC_COLOR = "cornflowerblue"
 APMDC_MEAN_COLOR = "springgreen"
 APMD_COLOR = "pink"
@@ -251,12 +254,13 @@ def basic_base_figure():
         scores = apmdc_data[tcp]["tcp_score"]
         row = [tcp, scores, statistics.mean(scores)]
         apmdc.append(row)
-    apmdc.sort(key=lambda x: x[-1], reverse=True)
 
     apmd = {} # tcp_name, tcp_scores
     for tcp in apmd_data.keys():
         scores = apmd_data[tcp]["tcp_score"]
         apmd[tcp] = [scores, statistics.mean(scores)]
+
+    apmdc.sort(key=lambda x: (round(x[-1], 3), round(apmd[x[0]][-1], 3)), reverse=True)
 
     handles = [
     mpatches.Patch(color=APMDC_COLOR), mpatches.Patch(color=APMD_COLOR),
@@ -288,7 +292,6 @@ def basic_hybrid_figure():
         tcp_base = re.sub(r'_div', '', tcp)
         row = [tcp_base, scores, statistics.mean(scores)]
         div.append(row)
-    div.sort(key=lambda x: x[-1], reverse=True)
 
     bt = {} # tcp_name, tcp_scores
     for tcp in bt_data.keys():
@@ -296,11 +299,13 @@ def basic_hybrid_figure():
         tcp_base = re.sub(r'_bt', '', tcp)
         bt[tcp_base] = [scores, statistics.mean(scores)]
 
+    div.sort(key=lambda x: (round(x[-1], 3), round(bt[x[0]][-1], 3)), reverse=True)
+
     handles = [
     mpatches.Patch(color=DIV_COLOR), mpatches.Patch(color=BT_COLOR),
     mpatches.Patch(color=DIV_MEAN_COLOR), mpatches.Patch(color=BT_MEAN_COLOR)#col 2
     ]
-    labels = ["", "", "Div", "Bt"]
+    labels = ["", "", "T$_{div}$", "T$_{tie}$"]
 
     draw_comparison(
         data1=div, data2=bt, 
@@ -422,7 +427,6 @@ def peer_figure():
         scores = basic_data[tcp]["tcp_score"]
         row = [tcp, scores, statistics.mean(scores)]
         base.append(row)
-    base.sort(key=lambda x: x[-1], reverse=True)
 
     div = {} # tcp_name, tcp_scores
     for tcp in div_data.keys():
@@ -436,6 +440,8 @@ def peer_figure():
         tcp_base = re.sub(r'_bt', '', tcp)
         bt[tcp_base] = [scores, statistics.mean(scores)]
 
+    base.sort(key=lambda x: (round(x[-1], 3), round(div[x[0]][-1], 3), round(bt[x[0]][-1], 3)), reverse=True)
+
     vc1 = "darkseagreen"
     vc2 = "skyblue"
     vc3 = "lavenderblush"
@@ -447,7 +453,7 @@ def peer_figure():
     mpatches.Patch(color=vc1), mpatches.Patch(color=vc2), mpatches.Patch(color=vc3),
     mpatches.Patch(color=mc1), mpatches.Patch(color=mc2), mpatches.Patch(color=mc3)
     ]
-    labels = ["", "", "", "Basic", "Div", "Bt"]
+    labels = ["", "", "", "Basic", "T$_{div}$", "T$_{tie}$"]
 
     draw_threeViolin(
         data1=base, data2=div, data3=bt, 

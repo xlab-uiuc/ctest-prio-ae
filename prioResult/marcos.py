@@ -75,11 +75,11 @@ TCP_MARCONAMES = {
 
 
 	# peer based
-	T_PF_ALL: "Conf$^{ALL}_{tot}$",
+	T_PF_ALL: "Conf$^{all}_{tot}$",
 	T_PF_RC: "Conf$^{RC}_{tot}$",
 	T_PF_DP: "Conf$^{DP}_{tot}$",
 	T_PF_PC: "Conf$^{PC}_{tot}$",
-	A_PF_ALL: "Conf$^{ALL}_{add}$",
+	A_PF_ALL: "Conf$^{all}_{add}$",
 	A_PF_RC: "Conf$^{RC}_{add}$",
 	A_PF_DP: "Conf$^{DP}_{add}$",
 	A_PF_PC: "Conf$^{PC}_{add}$",
