@@ -56,5 +56,6 @@ for k, v in pinput.items():
     if type(v) == type([]):
         v = "\t".join([str(x) for x in v])
     logging.info(">>>>{}: {}".format(k, v))
+logging.StreamHandler().flush()
 
-assert project in [HCOMMON, HDFS, HBASE, ALLUXIO, ZOOKEEPER], "module is not supported"
+assert project in [HCOMMON, HDFS, HBASE, ALLUXIO, ZOOKEEPER], "module is not supported."

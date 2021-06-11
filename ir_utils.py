@@ -96,7 +96,7 @@ def aggr_extclass(docsdata):
                             docsdata[chain[i-1]][key] = []
                         docsdata[chain[i-1]][key] += docsdata[chain[i]][key]
         elif len(clsdata["extendedClasses"]) > 1:
-            logging.info("[strange] more than one extended class", testcls)
+            print("[strange] more than one extended class", testcls)
         else:
             pass
 

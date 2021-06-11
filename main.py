@@ -1,6 +1,7 @@
 # simulate prio techniques on ctest dataset
 import time
-import multiprocessing as mp
+import threading
+from concurrent.futures import ThreadPoolExecutor
 
 import ordering, parsing_utils, peer, utils
 from constant import *
@@ -96,7 +97,7 @@ def load_prio_data(tcp):
 
 
 def prioritize(imgname, tcp, testinfo):
-    # imgname: file name of the test result
+    # given a conf change and a tcp, return result logs
     prio_data = load_prio_data(tcp)
     prio = ordering.Prio(tcp, imgname, testinfo, prio_data)
     if not tcp.endswith("_div") and not tcp.endswith("_bt"):
@@ -127,21 +128,30 @@ def prioritize(imgname, tcp, testinfo):
             prio.qtf_hybrid()
         else:
             exit("prioritize: unknown hybrid tcp: {}".format(tcp))
+    return prio.logs
 
 
 def main():
     s = time.time()
     dataset = parsing_utils.parse_docker_dataset()
-    pool = mp.Pool(max(1, mp.cpu_count()-2))
-    mp_ret = pool.starmap(run_tcp, [(tcp, dataset) for tcp in TCPS])
-    pool.close()
+    executor = ThreadPoolExecutor(max_workers=10)
+    all_logs = [executor.submit(run_tcp, tcp, dataset).result() for tcp in TCPS]
+
+    # log results
+    assert len(all_logs) == len(TCPS), "number of run TCP not match."
+    for per_tcp_logs in all_logs:
+        assert pinput["nrun"] * len(dataset) == len(per_tcp_logs), "number of config change * seed not match."
+        for line in per_tcp_logs:
+            logging.info(line)
     logging.info("total-time: {}".format(time.time()-s))
 
 
 def run_tcp(tcp, dataset):
+    per_tcp_logs = []
     data_for_tcp = load_prio_data(tcp)
     for img, fdata in dataset.items():
-        prioritize(img, tcp, fdata["testinfo"])
+        per_tcp_logs += prioritize(img, tcp, fdata["testinfo"])
+    return per_tcp_logs
 
 if __name__ == '__main__':
     main()

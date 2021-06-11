@@ -256,6 +256,7 @@ def parse_docker_dataset():
             }
         logging.info(">>>>conf_chg: {}, #params: {}, #misconfs: {}, #ctests: {}, #failed ctests: {}".format(
             imgname, nparam, nmisconf, ntest, nfailtest))
+        logging.StreamHandler().flush()
     return dataset
 
 ############################## filtering

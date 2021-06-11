@@ -18,10 +18,11 @@ class Prio:
         self.tinfo = tinfo # test data: Test(testname, test_result, testtime)
         self.pdata = pdata # prio data: code coverage, etc
         self.m = Metric([], imgname, {})
+        self.logs = []
 
 
     def log_run(self, project, seed, res_arr):
-            logging.info("[CPRIO]{\"project\": \"%s\", \"conf_chg\":\"%s\", \"tcp\":\"%s\", \"run\":\"%s\", \"scores\":\"%s\"}"%(
+            self.logs.append("[CPRIO]{\"project\": \"%s\", \"conf_chg\":\"%s\", \"tcp\":\"%s\", \"run\":\"%s\", \"scores\":\"%s\"}"%(
                 project, self.img, self.tcp, seed, ",".join(map(str, res_arr))))
 
 
