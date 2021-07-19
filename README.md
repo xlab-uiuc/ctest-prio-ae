@@ -1,6 +1,6 @@
 
 
-# Research Artifact: Test-Case Prioritization for Configuration Testing
+# Research Artifacts: Test-Case Prioritization for Configuration Testing
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4728985.svg)](https://doi.org/10.5281/zenodo.4728985)
 
